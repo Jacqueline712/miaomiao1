@@ -1,16 +1,23 @@
 <template>
 	<header id="header">
-		<h1>喵喵影院</h1>
+		<h1>{{ title }}</h1>
 	</header>
 </template>
 
 <script>
-	export default{
-		name:'Header'
+	export default {
+		name: 'Header',
+		props:{
+			title:{
+				type:String,
+				// 初始值
+				default:'喵喵电影'
+			}
+		}
 	}
 </script>
 
-<style>
+<style scoped>
 	#header {
 		width: 100%;
 		height: 50px;
@@ -23,7 +30,9 @@
 	#header h1 {
 		font-size: 18px;
 		text-align: center;
+		/* 类似于垂直居中 */
 		line-height: 50px;
+		/* 字体粗重 */
 		font-weight: normal;
 	}
 

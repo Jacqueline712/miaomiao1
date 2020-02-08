@@ -20,6 +20,11 @@ export default new VueRouter({
   routes:[
 	movieRouter,
 	cinemaRouter,
-	mineRouter
+	mineRouter,
+	{
+		path:'/*',
+		// 找不到则跳转到这个页面
+		redirect:'/movie'
+	}
   ]
 })
