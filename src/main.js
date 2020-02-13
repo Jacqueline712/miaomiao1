@@ -3,6 +3,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import axios from 'axios'
+// 可以通过this的方式引入action
+Vue.prototype.axios = axios;
+
+Vue.filter('setWH',(url,arg)=>{
+	return url.replace(/w\.h/,arg);
+})
+
 Vue.config.productionTip = false
 
 new Vue({
