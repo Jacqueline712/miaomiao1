@@ -53,12 +53,13 @@
 		watch:{
 			message(newVal){
 				var that = this;
+				var cityId = this.$store.state.city.id;
 				this.cancelRequest();
 				// clearTimeout();
 				// setTimeout();
 				// onabort();
 				// 函数反抖策略
-				this.axios.get('/api/searchList?cityId=10&kw=a' + newVal,{
+				this.axios.get('/api/searchList?cityId=' + cityId +'&kw=' + newVal,{
 					// 第二个参数
 					cancelToken:new this.axios.CancelToken(function executor(c){
 						that.source = c;
