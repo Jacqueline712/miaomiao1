@@ -21,7 +21,7 @@
 			</keep-alive>
 		</div>
 		<TabBar />
-		<MessageBox />
+		<!-- <MessageBox /> -->
 	</div>
 </template>
 
@@ -29,15 +29,41 @@
 	// @表示src目录
 	import Header from '@/components/Header'
 	import TabBar from '@/components/TabBar'
-	import MessageBox from '@/components/js/MessageBox'
+	import {messageBox} from '@/components/js'
 	
 	export default{
 		name:'Movie',
 		// 注册局部组件 记得加s T_T
 		components:{
 			Header,
-			TabBar,
-			MessageBox
+			TabBar
+			
+		},
+		mounted(){
+			
+			setTimeout(()=>{
+				this.axios.get('/api/getLocation').then((res)=>{
+					var msg = res.data.msg;
+					if(msg === 'ok'){
+						
+						var nm = res.data.data.nm;
+						var id = res.data.data.id;
+						console.log(this.$store.state.city.id,id);
+						if(this.$store.state.city.id == id){return ;}
+						messageBox({
+							title:'定位1',
+							content:nm,
+							cancel:'取消',
+							ok:'切换定位',
+							handleOk(){
+								window.localStorage.setItem('nowNm',nm);
+								window.localStorage.setItem('nowId',id);
+								window.location.reload();
+							}
+						});
+					}
+				});
+			},2500);
 			
 		}
 	}

@@ -54,7 +54,7 @@
 			// 响应式数据 要用this
 			if(this.preCityId === cityId){return ;}
 			this.isLoading = true;
-			console.log(123);
+			// console.log(123);
 			this.axios.get('/api/movieOnInfoList?cityId=' + cityId).then((res)=>{
 				var msg = res.data.msg;
 				if(msg === 'ok'){
