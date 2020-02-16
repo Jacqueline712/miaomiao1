@@ -5,7 +5,7 @@
 		<div id="content">
 			<div class="movie_menu">
 				<router-link tag = "div" to = "/movie/city" class="city_name">
-					<span>大连</span><i class="iconfont icon-lower-triangle"></i>
+					<span>{{$store.state.city.nm}}</span><i class="iconfont icon-lower-triangle"></i>
 				</router-link>
 				<div class="hot_swtich">
 					<router-link tag = "div" to = "/movie/nowPlaying" class="hot_item">正在热映</router-link>
@@ -21,6 +21,7 @@
 			</keep-alive>
 		</div>
 		<TabBar />
+		<MessageBox />
 	</div>
 </template>
 
@@ -28,13 +29,15 @@
 	// @表示src目录
 	import Header from '@/components/Header'
 	import TabBar from '@/components/TabBar'
+	import MessageBox from '@/components/js/MessageBox'
 	
 	export default{
 		name:'Movie',
 		// 注册局部组件 记得加s T_T
 		components:{
 			Header,
-			TabBar
+			TabBar,
+			MessageBox
 			
 		}
 	}
