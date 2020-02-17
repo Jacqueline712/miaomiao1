@@ -22,6 +22,29 @@ export default{
 			component:()=>import('@/components/Search')
 		},
 		{
+			path:'detail/1/:movieId',
+			components:{
+				default:()=>import('@/components/NowPlaying'),
+				// 引入到movie下name为detail的位置上
+				detail:()=>import('@/views/Movie/detail')
+			},
+			props:{
+				detail:true
+			}
+		},
+		{
+			path:'detail/2/:movieId',
+			components:{
+				// 在过度情况下显示的还是当前页面
+				default:()=>import('@/components/ComingSoon'),
+				// 引入到movie下name为detail的位置上
+				detail:()=>import('@/views/Movie/detail')
+			},
+			props:{
+				detail:true
+			}
+		},
+		{
 			// 给路由初始化
 			path:'/movie',
 			redirect:'/movie/nowPlaying'
