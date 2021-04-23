@@ -1,4 +1,4 @@
-# miaomiao1
+# maizuo_cinema
 
 ## Project setup
 ```
