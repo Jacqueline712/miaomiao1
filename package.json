@@ -16,7 +16,7 @@
     "mint-ui": "^2.2.13",
     "postcss-loader": "^3.0.0",
     "postcss-px2rem": "^0.3.0",
-    "swiper": "^5.3.8",
+    "swiper": "^6.5.1",
     "trek-captcha": "^0.4.0",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^4.1.1",
